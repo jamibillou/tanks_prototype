@@ -1,0 +1,52 @@
+.row
+	.span9.offset1.lead
+		Recherche
+		%h5.pull-right= link_to 'Critères avancés', '#', { :style => 'margin-right:90px', :onclick => "$('#filters').show('fast')" }
+		%form.form-horizontal
+			.input-append
+				%input#search.input-xxlarge{ :placeholder => 'Saisissez votre recherche' }
+					%button.btn.btn-large.btn-info{ :style => 'margin-left:-6px;'}
+						%i.icon-search
+.row
+	.span9.offset1#filters{ :style => 'font-size: 10pt;display:none' }
+		Type I :
+		%select.span1
+			%option Tous
+			%option HEK
+			%option COS-1
+			%option IC6
+			%option CHO
+			%option	Véro
+		Type II : 
+		%select.span2
+			%option Tous
+			%option Ligne adhérente
+			%option Ligne en suspension
+		Client : 
+		%select.span2
+			%option Tous
+			%option Ligne de base
+			%option Biomérieux
+			%option Necker
+			%option Netris Pharma
+			%option Sisène
+			%option Sastim
+		Site :
+		%select.span2
+			%option Tous
+			%option Grenoble
+			%option Lyon
+		%a{ :href => '#', :style => 'margin-left:15px;', :onclick => "$('#filters').hide('fast')"}
+			%i.icon-remove
+.row{ :style => 'margin-top:15px'}
+	.span12.offset1
+		%table.table.table-stripped.table-bordered
+			%thead
+				%th Type I
+				%th Type II
+				%th Client
+				%th Nom
+				%th Référence
+				%th Position
+				%th Localisation
+				%th Origine
