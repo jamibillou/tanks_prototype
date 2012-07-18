@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
 */
+
+ul li{
+	display: inline;
+}
+
+ul li a{
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.boite{
+	font-size: 7pt;
+	text-align: center;
+	float: left;
+	margin: 10px 20px 10px 20px;
+}
+
+.boite tr td{
+	border: 1px solid black;
+	width: 60px;
+	height: 60px;
+}
+
+a.selected{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #d9e7f8;
+}

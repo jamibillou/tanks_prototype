@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+@show_rack = (rack_id) ->
+	$('a.selected').removeClass('selected')
+	$('#rack'+rack_id).addClass('selected')
+	$.ajax 'pages/render_rack',
+	dataType: 'html',
+	type: 'POST',
+	data: {rack_id:'rack'+rack_id},
+	success: (data) ->
+		$('#info_rack').html(data)

@@ -7,8 +7,8 @@
 				%input#search.input-xxlarge{ :placeholder => 'Saisissez votre recherche' }
 					%button.btn.btn-large.btn-info{ :style => 'margin-left:-6px;'}
 						%i.icon-search
-.row
-	.span9.offset1#filters{ :style => 'font-size: 10pt;display:none' }
+.row#filters{ :style => 'font-size: 10pt;display:none' }
+	.span9.offset1
 		Type I :
 		%select.span1
 			%option Tous
@@ -20,12 +20,12 @@
 		Type II : 
 		%select.span2
 			%option Tous
-			%option Ligne adhérente
-			%option Ligne en suspension
+			%option Lignées adhérente
+			%option Lignées en suspension
 		Client : 
 		%select.span2
 			%option Tous
-			%option Ligne de base
+			%option Lignées de base
 			%option Biomérieux
 			%option Necker
 			%option Netris Pharma
@@ -36,17 +36,107 @@
 			%option Tous
 			%option Grenoble
 			%option Lyon
-		%a{ :href => '#', :style => 'margin-left:15px;', :onclick => "$('#filters').hide('fast')"}
+		%a{ :href => '#', :style => 'margin-left:15px;', :onclick => "$('#filters').hide('fast')" }
 			%i.icon-remove
-.row{ :style => 'margin-top:15px'}
+.row{ :style => 'margin-top:15px' }
 	.span12.offset1
-		%table.table.table-stripped.table-bordered
+		%table.table.table-striped.table-bordered
 			%thead
-				%th Type I
-				%th Type II
-				%th Client
-				%th Nom
-				%th Référence
-				%th Position
-				%th Localisation
-				%th Origine
+				%tr
+					%th Type I
+					%th Type II
+					%th Client
+					%th Nom
+					%th Référence
+					%th Position
+					%th Localisation
+					%th Origine
+			%tbody
+				%tr
+					%td HEK
+					%td	Adhérente			
+					%td	Lignée de base
+					%td HEK 293 Ebna
+					%td CRL-10852 293c18 lot 4071151 ATCC
+					%td= link_to 'II/3/13', '#'				
+					%td	Grenoble				
+					%td fournisseur ATCC
+				%tr
+					%td HEK
+					%td	Adhérente			
+					%td	Lignée de base
+					%td HEK293T
+					%td 
+					%td= link_to 'II/5/25', '#'				
+					%td	Grenoble				
+					%td
+				%tr
+					%td Véro
+					%td	Adhérente			
+					%td	Lignée de base
+					%td Véro
+					%td Véro 9.106 cell Lyon 29.09.09
+					%td= link_to 'III/1/10', '#'				
+					%td	Grenoble				
+					%td Inserm: reçu dans un milieu de culture, i.e. non congelé
+				%tr
+					%td CHO
+					%td	Suspension			
+					%td	Sisene
+					%td CHO-S
+					%td N12, N15, N22 ou N23 NOV
+					%td= link_to 'I/4/7 à 11 et 23 à 24', '#'				
+					%td	Grenoble				
+					%td Client: Novartis, mais transfécté à PX
+				%tr
+					%td T3/Duck
+					%td	Adhérente			
+					%td	Lignée de base
+					%td T3 Duck
+					%td T3 5,67,105 08/10/09
+					%td= link_to 'III/5/1 à 5', '#'				
+					%td	Grenoble				
+					%td Fournisseur: Transgene / NA / réf. 17490p85
+.row{ :style => 'margin-top: 20px'}
+	.span11.offset1.lead
+		Plans des tanks
+	.span6.offset1	
+		.tabbable
+			%ul.nav.nav-tabs#myTab
+				%li.active
+					%a{ :href => '#tab1', "data-toggle" => 'tab' } Grenoble
+				%li
+					%a{ :href => '#tab2', "data-toggle" => 'tab' } Lyon
+			.tab-content
+				.tab-pane.active#tab1
+					%ul
+						%li
+							%a#rack1_1.selected{ :href => '#myTab', :onclick => "show_rack('1_1')" } Rack I
+						%li
+							%a#rack1_2{ :href => '#myTab', :onclick => "show_rack('1_2')"  } Rack II
+						%li
+							%a#rack1_3{ :href => '#myTab', :onclick => "show_rack('1_3')" } Rack III
+						%li
+							%a#rack1_4{ :href => '#myTab' } Rack IV
+						%li
+							%a#rack1_5{ :href => '#myTab' } Rack V
+						%li
+							%a#rack1_6{ :href => '#myTab' } Rack VI
+				.tab-pane#tab2
+					%ul
+						%li
+							%a#rack2_1{ :href => '#myTab', :onclick => "show_rack('2_1')" } Rack I
+						%li
+							%a#rack2_2{ :href => '#myTab', :onclick => "show_rack('2_2')" } Rack II
+						%li
+							%a#rack2_3{ :href => '#myTab' } Rack III
+						%li
+							%a#rack2_4{ :href => '#myTab' } Rack IV
+						%li
+							%a#rack2_5{ :href => '#myTab' } Rack V
+						%li
+							%a#rack2_6{ :href => '#myTab' } Rack VI
+		%hr/
+.row
+	.span12.offset1#info_rack
+		= render 'racks/rack1_1'
