@@ -58,7 +58,7 @@
 					%td	Lignée de base
 					%td HEK 293 Ebna
 					%td CRL-10852 293c18 lot 4071151 ATCC
-					%td= link_to 'II/3/13', '#'				
+					%td= link_to_function 'II/3/13', "show_position('Grenoble',2,3,13)"				
 					%td	Grenoble				
 					%td fournisseur ATCC
 				%tr
@@ -76,7 +76,7 @@
 					%td	Lignée de base
 					%td Véro
 					%td Véro 9.106 cell Lyon 29.09.09
-					%td= link_to 'III/1/10', '#'				
+					%td= link_to_function 'III/1/10', "show_position('Grenoble',3,1,10)"				
 					%td	Grenoble				
 					%td Inserm: reçu dans un milieu de culture, i.e. non congelé
 				%tr
@@ -85,7 +85,7 @@
 					%td	Sisene
 					%td CHO-S
 					%td N12, N15, N22 ou N23 NOV
-					%td= link_to 'I/4/7 à 11 et 23 à 24', '#'				
+					%td= link_to_function 'I/4/7 à 11 et 23 à 24', "show_position('Grenoble',1,4,7,4)"			
 					%td	Grenoble				
 					%td Client: Novartis, mais transfécté à PX
 				%tr
@@ -94,7 +94,7 @@
 					%td	Lignée de base
 					%td T3 Duck
 					%td T3 5,67,105 08/10/09
-					%td= link_to 'III/5/1 à 5', '#'				
+					%td= link_to_function 'III/5/1 à 5', "show_position('Grenoble',3,5,1,4)"				
 					%td	Grenoble				
 					%td Fournisseur: Transgene / NA / réf. 17490p85
 .row{ :style => 'margin-top: 20px'}
@@ -104,38 +104,26 @@
 		.tabbable
 			%ul.nav.nav-tabs#myTab
 				%li.active
-					%a{ :href => '#tab1', "data-toggle" => 'tab' } Grenoble
+					%a#Grenoble{ :href => '#tab1', "data-toggle" => 'tab' } Grenoble
 				%li
-					%a{ :href => '#tab2', "data-toggle" => 'tab' } Lyon
+					%a#Lyon{ :href => '#tab2', "data-toggle" => 'tab' } Lyon
 			.tab-content
 				.tab-pane.active#tab1
 					%ul
-						%li
-							%a#rack1_1.selected{ :href => '#myTab', :onclick => "show_rack('1_1')" } Rack I
-						%li
-							%a#rack1_2{ :href => '#myTab', :onclick => "show_rack('1_2')"  } Rack II
-						%li
-							%a#rack1_3{ :href => '#myTab', :onclick => "show_rack('1_3')" } Rack III
-						%li
-							%a#rack1_4{ :href => '#myTab' } Rack IV
-						%li
-							%a#rack1_5{ :href => '#myTab' } Rack V
-						%li
-							%a#rack1_6{ :href => '#myTab' } Rack VI
+						%li= link_to_function 'Rack I', "show_rack('1_1')", { :class => 'selected', :id => 'rack1_1' }
+						%li= link_to_function 'Rack II', "show_rack('1_2')", { :id => 'rack1_2' }
+						%li= link_to_function 'Rack III', "show_rack('1_3')", { :id => 'rack1_3' }
+						%li= link_to_function 'Rack IV', "show_rack('1_4')", { :id => 'rack1_4' }
+						%li= link_to_function 'Rack V', "show_rack('1_5')", { :id => 'rack1_5' }
+						%li= link_to_function 'Rack VI', "show_rack('1_6')", { :id => 'rack1_6' }
 				.tab-pane#tab2
 					%ul
-						%li
-							%a#rack2_1{ :href => '#myTab', :onclick => "show_rack('2_1')" } Rack I
-						%li
-							%a#rack2_2{ :href => '#myTab', :onclick => "show_rack('2_2')" } Rack II
-						%li
-							%a#rack2_3{ :href => '#myTab' } Rack III
-						%li
-							%a#rack2_4{ :href => '#myTab' } Rack IV
-						%li
-							%a#rack2_5{ :href => '#myTab' } Rack V
-						%li
-							%a#rack2_6{ :href => '#myTab' } Rack VI
+						%li= link_to_function 'Rack I', "show_rack('2_1')", { :id => 'rack2_1' }
+						%li= link_to_function 'Rack II', "show_rack('2_2')", { :id => 'rack2_2' }
+						%li= link_to_function 'Rack III', "show_rack('2_3')", { :id => 'rack2_3' }
+						%li= link_to_function 'Rack IV', "show_rack('2_4')", { :id => 'rack2_4' }
+						%li= link_to_function 'Rack V', "show_rack('2_5')", { :id => 'rack2_5' }
+						%li= link_to_function 'Rack VI', "show_rack('2_6')", { :id => 'rack2_6' }
 		%hr/
 .row
 	.span12.offset1#info_rack
